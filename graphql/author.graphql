@@ -20,4 +20,9 @@ extend type Mutation {
 
 input AuthorInput {
     name: String! @rules(apply: ["required", "max:255"])
+    books: CreateBooksHasMany
+}
+
+input CreateBooksHasMany {
+  upsert: [BookInput!]
 }
