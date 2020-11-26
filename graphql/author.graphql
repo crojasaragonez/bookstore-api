@@ -25,4 +25,5 @@ input AuthorInput {
 
 input CreateBooksHasMany {
   upsert: [BookInput!]
+  delete: [ID!]
 }

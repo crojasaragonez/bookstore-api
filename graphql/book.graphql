@@ -29,4 +29,5 @@ input BookInput {
     description: String! @rules(apply: ["required", "max:255"])
     price: Float! @rules(apply: ["required", "numeric", "gt:0"])
     author_id: Int
+    author: AuthorInput
 }
