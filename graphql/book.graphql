@@ -17,3 +17,16 @@ type Book {
     created_at: DateTime!
     updated_at: DateTime!
 }
+
+extend type Mutation {
+    createBook(input: BookInput! @spread): Book! @create
+    updateBook(id: ID!, input: BookInput! @spread): Book @update
+    deleteBook(id: ID!): Book @delete
+}
+
+input BookInput {
+    name: String! @rules(apply: ["required", "max:255"])
+    description: String! @rules(apply: ["required", "max:255"])
+    price: Float! @rules(apply: ["required", "numeric", "gt:0"])
+    author_id: Int! @rules(apply: ["required"])
+}

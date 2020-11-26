@@ -11,3 +11,13 @@ type Author {
     created_at: DateTime!
     updated_at: DateTime!
 }
+
+extend type Mutation {
+    createAuthor(input: AuthorInput! @spread): Author! @create
+    updateAuthor(id: ID!, input: AuthorInput! @spread): Author @update
+    deleteAuthor(id: ID!): Author @delete
+}
+
+input AuthorInput {
+    name: String! @rules(apply: ["required", "max:255"])
+}
