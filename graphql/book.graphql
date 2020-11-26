@@ -13,6 +13,7 @@ type Book {
     description: String!
     price: Float!
     author_id: Int!
+    author: Author @hasOne
     created_at: DateTime!
     updated_at: DateTime!
 }
