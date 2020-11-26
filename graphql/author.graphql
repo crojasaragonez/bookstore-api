@@ -1,0 +1,12 @@
+extend type Query {
+    authors(name: String @where(operator: "like"),
+            orderBy: [OrderByClause!] @orderBy
+    ): [Author!]! @paginate(defaultCount: 12)
+}
+
+type Author {
+    id: ID!
+    name: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
